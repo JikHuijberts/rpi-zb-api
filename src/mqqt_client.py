@@ -7,7 +7,7 @@ TOPIC = "zigbee2mqtt"
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to server")
-    client.subscribe(TOPIC)
+    client.subscribe(TOPIC + "/bridge/devices")
 
 
 def on_message(client, userdata, msg):
