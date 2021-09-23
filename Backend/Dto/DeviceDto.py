@@ -1,5 +1,6 @@
 from flask_restx import Namespace, fields
 
+
 class DeviceDto:
     api = Namespace('device', description="dto for device")
     device = api.model('device', {

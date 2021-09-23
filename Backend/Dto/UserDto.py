@@ -1,14 +1,12 @@
 from flask_restx import Namespace, fields
 
 
-
-
 class UserDto:
     api = Namespace('user', description="Dto for user registration")
     user = api.model('user', {
         'first_name': fields.String(required=True, description="First name", nullable="False"),
-        'last_name': fields.String(required=True),
-        'infix': fields.String(),
+        'last_name': fields.String(required=True, description="Last name"),
+        'infix': fields.String(descritption="Last"),
         'email': fields.String(required=True,),
         'password': fields.String(),
 
