@@ -7,6 +7,7 @@ import SignIn from '../../features/signIn/SignIn';
 import Register from '../../features/register/register';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
     root: {

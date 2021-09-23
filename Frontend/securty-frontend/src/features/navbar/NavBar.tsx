@@ -3,11 +3,25 @@ import HomeIcon from '@mui/icons-material/Home';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { List, Toolbar, Box, IconButton, Typography, AppBar, ListItem, ListItemIcon, ListItemText, Drawer } from '@mui/material'
 import { Route } from "react-router";
-const drawerWidth = 240;
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import RouterOutlinedIcon from '@mui/icons-material/RouterOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import { NavLink } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 
+const drawerWidth = 240;
+const useStyles = makeStyles(() => ({
+  active: {
+    fontWeight: "bold",
+    color:"black"
+  },
+  noDecoration: { 
+    textDecoration: 'none'
+  }, 
+}));
 export function Navbar(){
     const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+    const classes = useStyles();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -15,6 +29,10 @@ export function Navbar(){
         <div>
             <Toolbar/>
             <List>
+              <NavLink to="/dashboard"
+                activeStyle={{classes.active}}
+                className={classes.noDecoration}
+              >
                 <ListItem button>
                   <ListItemIcon>
                     <DashboardIcon/>
@@ -22,25 +40,36 @@ export function Navbar(){
                   </ListItemIcon>
                   <ListItemText />
                 </ListItem>
+              </NavLink>
+              <NavLink to="dasboard/hubs"
+                activeStyle={classes.active}
+                className={classes.noDecoration}
+              >
                 <ListItem button>
                   <ListItemIcon>
-                    <DashboardIcon/>
+                    <RouterOutlinedIcon/>
                       Hubs
                   </ListItemIcon>
                   <ListItemText />
                 </ListItem>
+              </NavLink>
+              <NavLink to="/dasboard/profile"
+                activeStyle={classes.active}
+                className={classes.noDecoration}
+              >
                 <ListItem button>
                   <ListItemIcon>
-                    <DashboardIcon/>
+                    <PersonOutlineOutlinedIcon/>
                       Profile
                   </ListItemIcon>
                   <ListItemText />
                 </ListItem>
+              </NavLink>
             </List>
             <List>
             <ListItem button>
                   <ListItemIcon>
-                    <DashboardIcon/>
+                    <LogoutOutlinedIcon/>
                       Logout
                   </ListItemIcon>
                   <ListItemText />
